@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\CRM.Data.csproj" />
+    <ProjectReference Include="..\CRM.Data\CRM.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Extensions\\CRM.Extensions.csproj",
+      "projectUniqueName": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Extensions\\CRM.Extensions.csproj",
       "projectName": "CRM.Extensions",
-      "projectPath": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Extensions\\CRM.Extensions.csproj",
+      "projectPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Extensions\\CRM.Extensions.csproj",
       "packagesPath": "C:\\Users\\Adam Eansworth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Extensions\\obj\\",
+      "outputPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Extensions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

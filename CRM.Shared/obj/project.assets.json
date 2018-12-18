@@ -687,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Shared\\CRM.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
       "projectName": "CRM.Shared",
-      "projectPath": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Shared\\CRM.Shared.csproj",
+      "projectPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
       "packagesPath": "C:\\Users\\Adam Eansworth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam Eansworth\\Projects\\CRM\\CRM\\CRM.Shared\\obj\\",
+      "outputPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRM", "CRM\CRM.csproj", "{4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F8505932-72E2-46B3-82B3-AA85AA44716F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRM.Data", "..\..\..\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\CRM.Data.csproj", "{FCC8A931-89B5-4DA8-AEAB-2AD759A6B73A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRM.Data", "CRM.Data\CRM.Data.csproj", "{FCC8A931-89B5-4DA8-AEAB-2AD759A6B73A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRM.Tests.General", "CRM.Tests.General\CRM.Tests.General.csproj", "{0AEF562D-C634-42E6-BF67-58C20BE5BC10}"
 EndProject
