@@ -1,9 +1,0 @@
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\bin\Debug\netcoreapp2.1\CRM.Extensions.deps.json
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\bin\Debug\netcoreapp2.1\CRM.Extensions.dll
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\bin\Debug\netcoreapp2.1\CRM.Extensions.pdb
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.csprojAssemblyReference.cache
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.csproj.CoreCompileInputs.cache
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.AssemblyInfoInputs.cache
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.AssemblyInfo.cs
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.dll
-C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Extensions\obj\Debug\netcoreapp2.1\CRM.Extensions.pdb
