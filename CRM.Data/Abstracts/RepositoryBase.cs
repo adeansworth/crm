@@ -19,6 +19,12 @@ namespace CRM.Data.Abstracts
             CoreDataContext = unitOfWork.CoreContext;
             ProjectDataContext = unitOfWork.ProjectContext;
             CollectionName = collectionName;
+
+            if (CollectionName.StartsWith("project"))
+                CollectionName = CollectionName.Substring(7);
+
+            if (CollectionName.StartsWith("core"))
+                CollectionName = CollectionName.Substring(4);
         }
 
         protected CoreDataContext CoreDataContext { get; private set; }

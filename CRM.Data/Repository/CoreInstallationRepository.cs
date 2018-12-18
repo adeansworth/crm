@@ -44,6 +44,13 @@ namespace CRM.Data.Repository
             return cursor.FirstOrDefault();
         }
 
+        public async Task<T> Get(string name)
+        {
+            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.Name.ToLower(), name.ToLower());
+            var cursor = await CoreDataContext.Installations.FindAsync<T>(filter);
+            return cursor.FirstOrDefault();
+        }
+
         public override IQueryable<T> GetAll()
         {
             return CoreDataContext.GetQueryable<T>(CollectionName).AsQueryable();
@@ -54,7 +61,7 @@ namespace CRM.Data.Repository
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            var search = await Get(entity.ID);
+            var search = await Get(entity.Name);
             if (search == null)
                 Create(entity);
 

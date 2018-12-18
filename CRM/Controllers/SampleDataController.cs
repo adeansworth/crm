@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CRM.Data.Classes;
+using CRM.Data.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CRM.Controllers
 {
@@ -24,6 +27,18 @@ namespace CRM.Controllers
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             });
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetInstallations()
+        {
+            using(UnitOfWork uow = new UnitOfWork())
+            {
+                var x = uow.CoreInstallations.GetAll().ToList();
+                return Ok(JsonConvert.SerializeObject(x));
+            }
+
+            return NotFound();
         }
 
         public class WeatherForecast
