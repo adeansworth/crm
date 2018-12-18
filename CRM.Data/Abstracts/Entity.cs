@@ -1,6 +1,7 @@
 ﻿using CRM.Data.Classes;
 using CRM.Data.Entities;
 using CRM.Data.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace CRM.Data.Abstracts
 {
     public abstract class Entity : IEntity
     {
-        public abstract int ID { get; set; }
+        public abstract ObjectId ID { get; set; }
 
         [BsonElement]
         public DocumentStatus Status { get; set; } = new DocumentStatus();

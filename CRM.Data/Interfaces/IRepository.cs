@@ -1,4 +1,5 @@
 ﻿using CRM.Data.Abstracts;
+using MongoDB.Bson;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace CRM.Data.Interfaces
     public interface IRepository<T> where  T : IEntity
     {
         IQueryable<T> GetAll();
-        Task<T> Get(int id);
+        Task<T> Get(ObjectId id);
         void Create(T entity);
         void CreateMany(IEnumerable<T> entities);
         void Update(T entity);
         void UpdateMany(IEnumerable<T> entities);
-        void Delete(int id);
+        void Delete(ObjectId id);
         void DeleteMany(IEnumerable<T> entities);
     }
 }

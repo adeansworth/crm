@@ -1,6 +1,7 @@
 ﻿using CRM.Data.Abstracts;
 using CRM.Data.Entities;
 using CRM.Data.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
@@ -15,6 +16,8 @@ namespace CRM.Data.Repository
     {
         public CoreInstallationRepository(IUnitOfWork unitOfWork, string databaseName) : base(unitOfWork, databaseName)
         {
+            var indx = Builders<CoreInstallation>.IndexKeys.Ascending(m => m.Name);
+            CoreDataContext.Installations.Indexes.CreateOne(indx);
 
         }
 
@@ -23,13 +26,18 @@ namespace CRM.Data.Repository
             await CoreDataContext.Installations.InsertOneAsync(entity);
         }
 
-        public async override void Delete(int id)
+        public new async void CreateMany(IEnumerable<T> entities)
+        {
+            await CoreDataContext.Installations.InsertManyAsync(entities);
+        }
+
+        public async override void Delete(ObjectId id)
         {
             var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, id);
             await CoreDataContext.Installations.FindOneAndDeleteAsync(filter);
         }
 
-        public async override Task<T> Get(int id)
+        public async override Task<T> Get(ObjectId id)
         {
             var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, id);
             var cursor = await CoreDataContext.Installations.FindAsync<T>(filter);
@@ -46,11 +54,9 @@ namespace CRM.Data.Repository
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            if (entity.ID == 0)
-            {
+            var search = await Get(entity.ID);
+            if (search == null)
                 Create(entity);
-                return;
-            }
 
             var result = await CoreDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID,
                 (CoreInstallation)entity, new UpdateOptions { IsUpsert = true });

@@ -15,23 +15,32 @@ namespace CRM.Tests.General
         {
             using(UnitOfWork uow = new UnitOfWork())
             {
-                CoreInstallation coreInstallation = new CoreInstallation()
-                {
-                    Name = "Core"
-                };
+                
 
 
                 try
                 {
                     Console.WriteLine(uow.CoreInstallations.CollectionName);
 
-                    List<CoreInstallation> query = uow.CoreInstallations.GetAll().ToList();
-                    foreach(var i in query)
-                    {
-                        Console.WriteLine("{0} - {1}", i.ID, i.Name);
-                    }
+                    //List<CoreInstallation> query = uow.CoreInstallations.GetAll().ToList();
+                    //foreach(var i in query)
+                    //{
+                    //    Console.WriteLine("{0} - {1}", i.ID, i.Name);
+                    //}
 
-                    uow.CoreInstallations.Create(coreInstallation);
+                    uow.CoreInstallations.CreateMany(
+                        new List<CoreInstallation>()
+                        {
+                            new CoreInstallation() { Name = "Core" },
+                            new CoreInstallation() { Name = "Kayleighs Hair Dressers" },
+                            new CoreInstallation() { Name = "Nooshas Vegan Food Store" },
+                            new CoreInstallation() { Name = "Terrys Automotive" }
+                        });
+
+                    //uow.CoreInstallations.Create(new CoreInstallation() { Name = "Core" });
+                    //uow.CoreInstallations.Create(new CoreInstallation() { Name = "Kayleighs Hair Dressers" });
+                    //uow.CoreInstallations.Create(new CoreInstallation() { Name = "Nooshas Vegan Food Store" });
+                    //uow.CoreInstallations.Create(new CoreInstallation() { Name = "Terrys Automotive" });
                 }
                 catch(Exception ex)
                 {

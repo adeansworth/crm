@@ -1,5 +1,6 @@
 ﻿using CRM.Data.Classes;
 using CRM.Data.Interfaces;
+using MongoDB.Bson;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
@@ -24,12 +25,12 @@ namespace CRM.Data.Abstracts
         protected ProjectDataContext ProjectDataContext { get; private set; }
 
         public abstract IQueryable<T> GetAll();
-        public abstract Task<T> Get(int id);
-        public abstract void Delete(int id);
+        public abstract Task<T> Get(ObjectId id);
+        public abstract void Delete(ObjectId id);
         public abstract void Create(T entity);
         public void CreateMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Create(m); });
         public abstract void Update(T entity);
-        public void UpdateMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Update(m); });
-        public void DeleteMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Delete(m.ID); });
+        public void UpdateMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { /*Update(m);*/ });
+        public void DeleteMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { /*Delete(m.ID);*/ });
     }
 }

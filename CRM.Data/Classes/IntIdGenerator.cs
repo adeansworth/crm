@@ -14,15 +14,15 @@ namespace CRM.Data.Classes
     {
         public object GenerateId(object container, object document)
         {
-            IMongoCollection<T> collection = (IMongoCollection<T>)container;
+            //IMongoCollection<T> collection = (IMongoCollection<T>)container;
             
-            if (collection.Find(m => true).Count() > 0)
-            {
-                var record = collection.AsQueryable().OrderByDescending(m => m.ID).FirstOrDefault();
+            //if (collection.Find(m => true).Count() > 0)
+            //{
+            //    var record = collection.AsQueryable().OrderByDescending(m => m.ID).FirstOrDefault();
                 
-                if (record != null)
-                    return record.ID + 1;
-            }
+            //    if (record != null)
+            //        return record.ID + 1;
+            //}
             
             return 1;
         }

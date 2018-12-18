@@ -3,6 +3,7 @@ using CRM.Data.Classes;
 using CRM.Data.Interfaces;
 using CRM.Extensions;
 using CRM.Shared.Enums;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace CRM.Data.Entities
 {
     public class CoreInstallation : Entity, IInstallation
     {
-        [BsonId(IdGenerator = typeof(IntIdGenerator<CoreInstallation>))]
-        public override int ID { get; set; }
+        [BsonId]
+        public override ObjectId ID { get; set; }
 
         public string Name
         {
