@@ -1,4 +1,7 @@
 ﻿using CRM.Data.Entities;
+using CRM.Data.Interfaces;
+using CRM.Shared.Abstracts;
+using CRM.Shared.Interfaces;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
@@ -8,34 +11,32 @@ using System.Text;
 
 namespace CRM.Data.Abstracts
 {
-    public class DataContextBase : IDisposable
+    public class DataContextBase : IDataContext, IDisposable
     {
         protected MongoClient Client { get; private set; }
 
         internal IMongoDatabase database = null;
         internal MongoClientSettings settings;
 
-        protected ProjectInstallation Installation { get; private set; }
+        protected IInstallation Installation { get; private set; }
 
-        public DataContextBase()
+        protected static IInstallation GetDefaultInstallation()
         {
-            SetupConnection();
-        }
-
-        public DataContextBase(ProjectInstallation installation)
-        {
-            SetupConnection(installation);
-        }
-
-        private ProjectInstallation GetDefaultInstallation()
-        {
-            return new ProjectInstallation()
+            return new CoreInstallation()
             {
                 Name = "Core"
             };
         }
 
-        private void SetupConnection(ProjectInstallation installation = null)
+        protected static IInstallation GetProjectInstallation(string name)
+        {
+            return new ProjectInstallation()
+            {
+                Name = name
+            };
+        }
+
+        protected void SetupConnection(IInstallation installation = null)
         {
             if (installation != null)
                 Installation = installation;
@@ -51,10 +52,6 @@ namespace CRM.Data.Abstracts
             Client = new MongoClient(settings);
             database = Client.GetDatabase(Installation.DatabaseName);
         }
-
-        public void ChangeProjectToDefault() => SetupConnection(GetDefaultInstallation());
-
-        public void ChangeProject(ProjectInstallation installation) => SetupConnection(installation);
 
         public IMongoQueryable<T> GetQueryable<T>(string collectionName) => database.GetCollection<T>(collectionName).AsQueryable<T>();
 

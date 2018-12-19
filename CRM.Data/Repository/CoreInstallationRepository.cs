@@ -19,54 +19,30 @@ namespace CRM.Data.Repository
         {
             //var indx = Builders<CoreInstallation>.IndexKeys.Ascending(m => m.Name);
             //CoreDataContext.Installations.Indexes.CreateOne(indx);
-
         }
 
         public async override void Create(T entity) 
         {
             await CoreDataContext.Installations.InsertOneAsync(entity);
+
+            if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
+                SaveAudit(entity, CoreDataContext);
         }
 
-        public new async void CreateMany(IEnumerable<T> entities)
-        {
-            await CoreDataContext.Installations.InsertManyAsync(entities);
-        }
-
-        public async override void Delete(DocumentID id)
-        {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, id);
-            await CoreDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
+        //public new async void CreateMany(IEnumerable<T> entities)
+        //{
+        //    await CoreDataContext.Installations.InsertManyAsync(entities);
+        //}
+        
         public async override void Delete(string guid)
         {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID.GUID, guid);
+            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, guid);
             await CoreDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
-        public async override void Delete(int id)
-        {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID.ID, id);
-            await CoreDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
-        public async override Task<T> Get(DocumentID id)
-        {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, id);
-            var cursor = await CoreDataContext.Installations.FindAsync<T>(filter);
-            return cursor.FirstOrDefault();
         }
 
         public async override Task<T> Get(string guid)
         {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID.GUID, guid);
-            var cursor = await CoreDataContext.Installations.FindAsync<T>(filter);
-            return cursor.FirstOrDefault();
-        }
-
-        public async override Task<T> Get(int id)
-        {
-            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID.ID, id);
+            var filter = Builders<CoreInstallation>.Filter.Eq(m => m.ID, guid);
             var cursor = await CoreDataContext.Installations.FindAsync<T>(filter);
             return cursor.FirstOrDefault();
         }
@@ -81,12 +57,22 @@ namespace CRM.Data.Repository
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            var search = await Get(entity.Name);
+            var search = await Get(entity.ID);
             if (search == null)
+            {
                 Create(entity);
+                return;
+            }
+            
+            entity.Audit.Increment();
 
-            var result = await CoreDataContext.Installations.ReplaceOneAsync(item => item.ID.GUID == entity.ID.GUID,
-                (CoreInstallation)entity, new UpdateOptions { IsUpsert = true });
+            if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
+                SaveAudit(entity, CoreDataContext);
+
+
+            await CoreDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID, entity, new UpdateOptions { IsUpsert = true });
         }
+
+        
     }
 }

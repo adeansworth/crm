@@ -6,7 +6,7 @@ namespace CRM.Shared.Interfaces
 {
     public interface IUser : IPerson
     {
+        string InstallationID { get; set; }
         string Username { get; set; }
-        string Password { get; set; }
     }
 }

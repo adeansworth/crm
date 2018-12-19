@@ -10,6 +10,6 @@ namespace CRM.Data.Interfaces
 {
     public interface IEntity
     {
-        DocumentID ID { get; set; }
+        string ID { get; set; }
     }
 }

@@ -26,41 +26,15 @@ namespace CRM.Data.Repository
             await ProjectDataContext.Installations.InsertOneAsync(entity);
         }
 
-        public async override void Delete(DocumentID id)
-        {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, id);
-            await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
         public async override void Delete(string guid)
         {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.GUID, guid);
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, guid);
             await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
-        public async override void Delete(int id)
-        {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.ID, id);
-            await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
-        }
-
-        public async override Task<T> Get(DocumentID id)
-        {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, id);
-            var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
-            return cursor.FirstOrDefault();
         }
 
         public async override Task<T> Get(string guid)
         {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.GUID, guid);
-            var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
-            return cursor.FirstOrDefault();
-        }
-
-        public async override Task<T> Get(int id)
-        {
-            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.ID, id);
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, guid);
             var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
             return cursor.FirstOrDefault();
         }
@@ -75,11 +49,11 @@ namespace CRM.Data.Repository
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
             
-            var search = await Get(entity.ID.GUID);
+            var search = await Get(entity.ID);
             if (search == null)
                 Create(entity);
 
-            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID.GUID == entity.ID.GUID,
+            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID,
                 (ProjectInstallation)entity, new UpdateOptions { IsUpsert = true });
         }
     }

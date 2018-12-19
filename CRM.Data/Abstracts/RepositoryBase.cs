@@ -29,18 +29,21 @@ namespace CRM.Data.Abstracts
 
         protected CoreDataContext CoreDataContext { get; private set; }
         protected ProjectDataContext ProjectDataContext { get; private set; }
-
+        
         public abstract IQueryable<T> GetAll();
-        public abstract Task<T> Get(DocumentID id);
         public abstract Task<T> Get(string guid);
-        public abstract Task<T> Get(int id);
         public abstract void Create(T entity);
-        public void CreateMany(IEnumerable<T> entities) { }
+        public void CreateMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Create(m); });
         public abstract void Update(T entity);
-        public void UpdateMany(IEnumerable<T> entities) { }
-        public abstract void Delete(DocumentID id);
+        public void UpdateMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Update(m); });
         public abstract void Delete(string guid);
-        public abstract void Delete(int id);
-        public void DeleteMany(IEnumerable<T> entities) { }
+        public void DeleteMany(IEnumerable<T> entities) => entities.ToList().ForEach(m => { Delete(m.ID); });
+
+        protected async void SaveAudit(T entity, IDataContext context)
+        {
+            var wrappedEntity = new EntityWrapper<T>() { Document = entity }; 
+            var collection = context.GetCollection<EntityWrapper<T>>(string.Format("audit_{0}", CollectionName));
+            await collection.InsertOneAsync(wrappedEntity);
+        }
     }
 }

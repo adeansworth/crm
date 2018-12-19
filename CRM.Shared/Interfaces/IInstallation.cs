@@ -10,6 +10,7 @@ namespace CRM.Shared.Interfaces
         string Name { get; set; }
         string DatabaseName { get; }
         string FriendlyName { get; set; }
+        string Server { get; set; }
         int Port { get; set; }
         bool Secure { get; set; }
         Deployment Deployment { get; set; }

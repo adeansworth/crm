@@ -8,9 +8,11 @@ using System.Text;
 
 namespace CRM.Data.Entities
 {
-    public class CoreUser : User, IEntity, IAuditable<CoreUser>
+    public class CoreUser : User, IEntity, IAuditable
     {
         [BsonId(IdGenerator = typeof(DocumentIdGenerator))]
-        public DocumentID ID { get; set; }
+        public string ID { get; set; }
+
+        public Audit Audit { get; set; } = new Audit();
     }
 }

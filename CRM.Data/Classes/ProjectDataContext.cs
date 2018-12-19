@@ -1,5 +1,6 @@
 ﻿using CRM.Data.Abstracts;
 using CRM.Data.Entities;
+using CRM.Shared.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,14 @@ namespace CRM.Data.Classes
 {
     public class ProjectDataContext : DataContextBase, IDisposable
     {
-        public ProjectDataContext() : base()
+        public ProjectDataContext(string name)
         {
-
+            SetupConnection(GetProjectInstallation(name));
         }
 
-        public ProjectDataContext(ProjectInstallation installation) : base(installation)
+        public ProjectDataContext(IInstallation installation)
         {
-
+            SetupConnection(installation);
         }
 
         #region Collections

@@ -9,6 +9,6 @@ namespace CRM.Shared.Abstracts
     public abstract class User : Person, IUser
     {
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string InstallationID { get; set; }
     }
 }

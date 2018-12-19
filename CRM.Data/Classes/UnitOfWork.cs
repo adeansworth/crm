@@ -14,6 +14,12 @@ namespace CRM.Data.Classes
         private readonly CoreDataContext _coreContext;
         private readonly ProjectDataContext _projectContext;
 
+        public UnitOfWork(string projectName)
+        {
+            _coreContext = new CoreDataContext();
+            _projectContext = new ProjectDataContext(projectName); ;
+        }
+
         public UnitOfWork(CoreDataContext coreDataContext = null, ProjectDataContext projectDataContext = null)
         {
             if (coreDataContext == null)
@@ -27,7 +33,7 @@ namespace CRM.Data.Classes
 
         CoreDataContext IUnitOfWork.CoreContext { get { return _coreContext; } }
         ProjectDataContext IUnitOfWork.ProjectContext { get { return _projectContext; } }
-        
+
         void IDisposable.Dispose()
         {
             Dispose(true);
@@ -49,7 +55,7 @@ namespace CRM.Data.Classes
         #endregion CoreContext
         #region ProjectContext
         private ProjectInstallationRepository<ProjectInstallation> projectInstallations;
-        public ProjectInstallationRepository<ProjectInstallation> ProjectInstallations { get { if(projectInstallations == null) { projectInstallations = new ProjectInstallationRepository<ProjectInstallation>(this, nameof(projectInstallations).ToLower()); } return projectInstallations; } }
+        public ProjectInstallationRepository<ProjectInstallation> ProjectInstallations { get { if (projectInstallations == null) { projectInstallations = new ProjectInstallationRepository<ProjectInstallation>(this, nameof(projectInstallations).ToLower()); } return projectInstallations; } }
         #endregion ProjectContext
 
     }

@@ -13,9 +13,11 @@ using System.Text;
 
 namespace CRM.Data.Entities
 {
-    public class CoreInstallation : Installation, IEntity, IAuditable<CoreInstallation>
+    public class CoreInstallation : Installation, IEntity, IAuditable
     {
         [BsonId(IdGenerator = typeof(DocumentIdGenerator))]
-        public DocumentID ID { get; set; }
+        public string ID { get; set; }
+
+        public Audit Audit { get; set; } = new Audit();
     }
 }

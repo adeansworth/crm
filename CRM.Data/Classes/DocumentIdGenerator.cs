@@ -14,7 +14,7 @@ namespace CRM.Data.Classes
     {
         public object GenerateId(object container, object document)
         {
-            return new DocumentID();
+            return Guid.NewGuid().ToString();
         }
 
         public bool IsEmpty(object id)

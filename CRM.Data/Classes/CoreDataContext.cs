@@ -1,5 +1,6 @@
 ﻿using CRM.Data.Abstracts;
 using CRM.Data.Entities;
+using CRM.Shared.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,9 @@ namespace CRM.Data.Classes
 {
     public class CoreDataContext : DataContextBase, IDisposable
     {
-        public CoreDataContext() : base()
+        public CoreDataContext()
         {
-
-        }
-
-        public CoreDataContext(ProjectInstallation installation) : base(installation)
-        {
-
-        }
-
-        private void Init()
-        {
+            SetupConnection(GetDefaultInstallation());
         }
 
         #region Collections
