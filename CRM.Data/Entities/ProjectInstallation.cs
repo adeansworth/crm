@@ -18,6 +18,7 @@ namespace CRM.Data.Entities
         [BsonId(IdGenerator = typeof(DocumentIdGenerator))]
         public string ID { get; set; }
 
+        public bool DefaultProject { get; set; } = true;
         public Audit Audit { get; set; } = new Audit();
     }
 }

@@ -24,6 +24,9 @@ namespace CRM.Data.Repository
         public async override void Create(T entity)
         {
             await ProjectDataContext.Installations.InsertOneAsync(entity);
+
+            if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
+                SaveAudit(entity, ProjectDataContext);
         }
 
         public async override void Delete(string guid)
@@ -48,13 +51,23 @@ namespace CRM.Data.Repository
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
-            
+
+            if(entity.ID == null)
+                throw new ArgumentNullException(nameof(entity.ID));
+
             var search = await Get(entity.ID);
             if (search == null)
+            {
                 Create(entity);
+                return;
+            }
 
-            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID,
-                (ProjectInstallation)entity, new UpdateOptions { IsUpsert = true });
+            entity.Audit.Increment();
+
+            if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
+                SaveAudit(entity, ProjectDataContext);
+
+            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID, entity, new UpdateOptions { IsUpsert = true });
         }
     }
 }
