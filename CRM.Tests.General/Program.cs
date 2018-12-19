@@ -28,11 +28,11 @@ namespace CRM.Tests.General
                     //    Console.WriteLine("{0} - {1}", i.ID, i.Name);
                     //}
 
-                    var x = uow.CoreInstallations.Get(new MongoDB.Bson.ObjectId("5c1950d97f9dd23880fcbeea")).Result;
+                    //var x = uow.CoreInstallations.Get(new MongoDB.Bson.ObjectId("5c1950d97f9dd23880fcbeea")).Result;
 
 
 
-                    uow.CoreInstallations.UpdateMany(
+                    uow.CoreInstallations.CreateMany(
                         new List<CoreInstallation>()
                         {
                             new CoreInstallation() { Name = "Core" },

@@ -918,6 +918,9 @@
         }
       },
       "CRM.Shared/1.0.0": {
+        "dependencies": {
+          "CRM.Extensions": "1.0.0"
+        },
         "runtime": {
           "CRM.Shared.dll": {}
         }

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CRM.Data.Interfaces
+namespace CRM.Shared.Interfaces
 {
-    public interface IInstallation : IEntity
+    public interface IInstallation
     {
         string Name { get; set; }
         string DatabaseName { get; }

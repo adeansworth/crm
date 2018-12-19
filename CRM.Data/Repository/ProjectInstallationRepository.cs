@@ -1,4 +1,5 @@
 ﻿using CRM.Data.Abstracts;
+using CRM.Data.Classes;
 using CRM.Data.Entities;
 using CRM.Data.Interfaces;
 using MongoDB.Bson;
@@ -25,15 +26,41 @@ namespace CRM.Data.Repository
             await ProjectDataContext.Installations.InsertOneAsync(entity);
         }
 
-        public async override void Delete(ObjectId id)
+        public async override void Delete(DocumentID id)
         {
             var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, id);
             await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
         }
-        
-        public async override Task<T> Get(ObjectId id)
+
+        public async override void Delete(string guid)
+        {
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.GUID, guid);
+            await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
+        }
+
+        public async override void Delete(int id)
+        {
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.ID, id);
+            await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
+        }
+
+        public async override Task<T> Get(DocumentID id)
         {
             var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, id);
+            var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
+            return cursor.FirstOrDefault();
+        }
+
+        public async override Task<T> Get(string guid)
+        {
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.GUID, guid);
+            var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
+            return cursor.FirstOrDefault();
+        }
+
+        public async override Task<T> Get(int id)
+        {
+            var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID.ID, id);
             var cursor = await ProjectDataContext.Installations.FindAsync<T>(filter);
             return cursor.FirstOrDefault();
         }
@@ -47,12 +74,12 @@ namespace CRM.Data.Repository
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
-
-            var search = await Get(entity.ID);
+            
+            var search = await Get(entity.ID.GUID);
             if (search == null)
                 Create(entity);
 
-            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID,
+            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID.GUID == entity.ID.GUID,
                 (ProjectInstallation)entity, new UpdateOptions { IsUpsert = true });
         }
     }

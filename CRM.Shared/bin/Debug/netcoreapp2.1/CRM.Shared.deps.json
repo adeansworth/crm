@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "CRM.Shared/1.0.0": {
+        "dependencies": {
+          "CRM.Extensions": "1.0.0"
+        },
         "runtime": {
           "CRM.Shared.dll": {}
+        }
+      },
+      "CRM.Extensions/1.0.0": {
+        "runtime": {
+          "CRM.Extensions.dll": {}
         }
       }
     }
   },
   "libraries": {
     "CRM.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CRM.Extensions/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

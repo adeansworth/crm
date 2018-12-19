@@ -25,6 +25,7 @@ namespace CRM.Data.Classes
 
         #region Collections
         public IMongoCollection<CoreInstallation> Installations { get { return base.GetCollection<CoreInstallation>(nameof(Installations).ToLower()); } }
+        public IMongoCollection<CoreUser> Users { get { return base.GetCollection<CoreUser>(nameof(Users).ToLower()); } }
         #endregion Collections
 
         public void Dispose()

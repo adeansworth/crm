@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "CRM.Extensions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/CRM.Extensions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CRM.Extensions.dll": {}
+        }
       }
     }
   },
@@ -673,10 +683,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "CRM.Extensions/1.0.0": {
+      "type": "project",
+      "path": "../CRM.Extensions/CRM.Extensions.csproj",
+      "msbuildProject": "../CRM.Extensions/CRM.Extensions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "CRM.Extensions >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -687,11 +703,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Adam Eansworth\\Source\\Repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
       "projectName": "CRM.Shared",
-      "projectPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
+      "projectPath": "C:\\Users\\Adam Eansworth\\Source\\Repos\\adeansworth\\crm\\CRM.Shared\\CRM.Shared.csproj",
       "packagesPath": "C:\\Users\\Adam Eansworth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam Eansworth\\source\\repos\\adeansworth\\crm\\CRM.Shared\\obj\\",
+      "outputPath": "C:\\Users\\Adam Eansworth\\Source\\Repos\\adeansworth\\crm\\CRM.Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -709,7 +725,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Adam Eansworth\\Source\\Repos\\adeansworth\\crm\\CRM.Extensions\\CRM.Extensions.csproj": {
+              "projectPath": "C:\\Users\\Adam Eansworth\\Source\\Repos\\adeansworth\\crm\\CRM.Extensions\\CRM.Extensions.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
