@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CRM.Shared.Abstracts
 {
-    public abstract class Installation : IInstallation
+    public abstract class InstallationBase : IInstallation
     {
         public string Name
         {

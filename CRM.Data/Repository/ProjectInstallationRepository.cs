@@ -21,18 +21,18 @@ namespace CRM.Data.Repository
 
         }
 
-        public async override void Create(T entity)
+        public override void Create(T entity)
         {
-            await ProjectDataContext.Installations.InsertOneAsync(entity);
+            ProjectDataContext.Installations.InsertOneAsync(entity).Wait();
 
             if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
                 SaveAudit(entity, ProjectDataContext);
         }
 
-        public async override void Delete(string guid)
+        public override void Delete(string guid)
         {
             var filter = Builders<ProjectInstallation>.Filter.Eq(m => m.ID, guid);
-            await ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
+            ProjectDataContext.Installations.FindOneAndDeleteAsync(filter);
         }
 
         public async override Task<T> Get(string guid)
@@ -47,7 +47,7 @@ namespace CRM.Data.Repository
             return ProjectDataContext.GetQueryable<T>(CollectionName).AsQueryable();
         }
 
-        public async override void Update(T entity)
+        public override void Update(T entity)
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
@@ -55,7 +55,7 @@ namespace CRM.Data.Repository
             if(entity.ID == null)
                 throw new ArgumentNullException(nameof(entity.ID));
 
-            var search = await Get(entity.ID);
+            var search = Get(entity.ID).Result;
             if (search == null)
             {
                 Create(entity);
@@ -67,7 +67,7 @@ namespace CRM.Data.Repository
             if (typeof(IAuditable).IsAssignableFrom(typeof(T)))
                 SaveAudit(entity, ProjectDataContext);
 
-            var result = await ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID, entity, new UpdateOptions { IsUpsert = true });
+            ProjectDataContext.Installations.ReplaceOneAsync(item => item.ID == entity.ID, entity, new UpdateOptions { IsUpsert = true }).Wait();
         }
     }
 }

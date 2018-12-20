@@ -9,12 +9,12 @@ C:\Users\Adam Eansworth\Projects\CRM\CRM\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Shared.deps.json
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Shared.dll
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Shared.pdb
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Extensions.dll
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Extensions.pdb
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.csprojAssemblyReference.cache
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.csproj.CoreCompileInputs.cache
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.AssemblyInfoInputs.cache
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.AssemblyInfo.cs
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.csproj.CopyComplete
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.dll
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.pdb
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.csprojAssemblyReference.cache
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Extensions.dll
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\bin\Debug\netcoreapp2.1\CRM.Extensions.pdb
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Shared\obj\Debug\netcoreapp2.1\CRM.Shared.csproj.CopyComplete

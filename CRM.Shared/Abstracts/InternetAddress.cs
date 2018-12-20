@@ -6,9 +6,9 @@ using System.Text;
 
 namespace CRM.Shared.Abstracts
 {
-    public abstract class User : Person, IUser
+    public abstract class InternetAddress : IInternetAddress
     {
-        public string Username { get; set; }
-        public string InstallationID { get; set; }
+        public abstract AddressType Type { get; }
+        public string Data { get; set; }
     }
 }

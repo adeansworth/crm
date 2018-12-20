@@ -1,5 +1,6 @@
 ﻿using CRM.Data.Abstracts;
 using CRM.Data.Classes;
+using CRM.Shared.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver.Linq;
 using System;

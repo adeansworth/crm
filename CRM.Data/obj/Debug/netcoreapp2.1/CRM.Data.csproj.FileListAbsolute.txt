@@ -12,6 +12,10 @@ C:\Users\Adam Eansworth\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\bin\D
 C:\Users\Adam Eansworth\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csproj.CopyComplete
 C:\Users\Adam Eansworth\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Shared.dll
 C:\Users\Adam Eansworth\Documents\Visual Studio 2017\Projects\CRM\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Shared.pdb
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csprojAssemblyReference.cache
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csproj.CoreCompileInputs.cache
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.AssemblyInfoInputs.cache
+C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.AssemblyInfo.cs
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Data.deps.json
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Data.dll
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Data.pdb
@@ -19,10 +23,6 @@ C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcorea
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Shared.dll
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Extensions.pdb
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\bin\Debug\netcoreapp2.1\CRM.Shared.pdb
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csprojAssemblyReference.cache
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csproj.CoreCompileInputs.cache
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.AssemblyInfoInputs.cache
-C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.AssemblyInfo.cs
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.csproj.CopyComplete
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.dll
 C:\Users\Adam Eansworth\Source\Repos\adeansworth\crm\CRM.Data\obj\Debug\netcoreapp2.1\CRM.Data.pdb

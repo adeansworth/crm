@@ -23,7 +23,7 @@ namespace CRM.Tests.General
                 {
                     Console.WriteLine(uow.CoreInstallations.CollectionName);
 
-                    //var x = uow.CoreInstallations.GetAll().Where(m => m.ID == "add36292-f81a-456a-8f06-7178400da8d6").First();
+                    var x = uow.CoreInstallations.GetAll().Where(m => m.ID == "378ff7b3-3a62-46c5-867e-cb7750d1284f").First();
 
                     //x.Name = "Terrys Vehicle Spares";
 
@@ -39,11 +39,16 @@ namespace CRM.Tests.General
                     //        new CoreInstallation() { Name = "Terrys Automotive" }
                     //    });
 
-                    var x = uow.ProjectInstallations.GetAll().Where(m => m.ID == "ab77eef7-9cbb-49b1-9fd4-49cc9cea5aae").First();
 
-                    x.Name = "Terrys Vehicle Spares";
-
-                    uow.ProjectInstallations.Update(x);
+                    uow.ProjectInstallations.Update( new ProjectInstallation()
+                    {
+                        ID = x.ID,
+                        Name = x.FriendlyName,
+                        DefaultProject = true,
+                        Port = x.Port,
+                        Secure = x.Secure,
+                        Server = x.Server
+                    });
 
                     //uow.ProjectInstallations.UpdateMany(
                     //    new List<ProjectInstallation>()
@@ -58,7 +63,8 @@ namespace CRM.Tests.General
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex.Message);
+                    Console.ReadKey();
                 }
 
                 //Console.ReadKey();
